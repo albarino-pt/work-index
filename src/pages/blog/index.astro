@@ -7,7 +7,7 @@ import { getCollection } from "astro:content";
 import FormattedDate from "../../components/FormattedDate.astro";
 
 const posts = (await getCollection("blog")).sort(
-  (a, b) => a.data.pubDate.valueOf() - b.data.pubDate.valueOf()
+  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
 );
 ---
 
@@ -68,6 +68,7 @@ const posts = (await getCollection("blog")).sort(
       ul a:hover img {
         box-shadow: var(--box-shadow);
       }
+
       @media (max-width: 720px) {
         ul {
           gap: 0.5em;
@@ -88,6 +89,10 @@ const posts = (await getCollection("blog")).sort(
   <body>
     <Header />
     <main>
+      <p style="text-align:center;">
+        nothing yet to post about. stay connected
+      </p>
+
       <section>
         <ul>
           {
